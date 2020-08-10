@@ -47,7 +47,7 @@ class Exam
         System.out.println("Physics: " + getPhysicsTotal());
         System.out.println("Chemistry: " + getChemistryTotal());
         System.out.println("Biology: " + getBiologyTotal());
-        System.out.println("Percentage: " + getPercentage());
+        System.out.println("Percentage Overall: " + getPercentage());
         System.out.println("Total: " + getAllSubjectsTotal() + "/450.0");
     }
 
