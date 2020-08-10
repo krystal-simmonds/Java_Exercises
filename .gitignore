@@ -1,0 +1,6 @@
+.idea
+
+Java_Exercises.iml
+
+# Project exclude paths
+/target/
