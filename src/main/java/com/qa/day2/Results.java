@@ -5,7 +5,7 @@ public class Results
         Exam result = new Exam();
         result.physics = 110;
         result.chemistry = 130;
-        result.biology = 95;
+        result.biology = 50;
 
         System.out.println("Exam Marks");
         System.out.println("-------------------------------------------------");
@@ -20,17 +20,27 @@ class Exam
     int physics;
     int chemistry;
     int biology;
+    private Object Res;
 
     int getPhysicsTotal() {
         return physics;
+    }
+    double getPhysicsPercentage() {
+        return (physics / 150.0) * 100.00;
     }
 
     int getChemistryTotal() {
         return chemistry;
     }
+    double getChemistryPercentage() {
+        return (chemistry / 150.0) * 100.00;
+    }
 
     int getBiologyTotal() {
         return biology;
+    }
+    double getBiologyPercentage() {
+        return (biology / 150.0) * 100.00;
     }
 
     int getAllSubjectsTotal()
@@ -38,17 +48,40 @@ class Exam
         return physics + chemistry + biology;
     }
 
-    double getPercentage() {
+    double getOverallPercentage() {
     return 100.0 * (physics + chemistry + biology) / 450.0;
-}
+    }
 
     void printMarksSummary()
     {
-        System.out.println("Physics: " + getPhysicsTotal());
-        System.out.println("Chemistry: " + getChemistryTotal());
-        System.out.println("Biology: " + getBiologyTotal());
-        System.out.println("Percentage Overall: " + getPercentage());
+        System.out.println("Physics: " + getPhysicsTotal() + " (" + getPhysicsPercentage() + ")");
+        System.out.println("Chemistry: " + getChemistryTotal() + " (" + getChemistryPercentage() + ")");
+        System.out.println("Biology: " + getBiologyTotal() + " (" + getBiologyPercentage() + ")");
+        System.out.println("Percentage Overall: " + getOverallPercentage());
         System.out.println("Total: " + getAllSubjectsTotal() + "/450.0");
+
+        if (getOverallPercentage() < 60.00) {
+            System.out.println("You have failed your final exams");
+        } else if (getPhysicsPercentage() < 60.00) {
+            System.out.println();
+            System.out.println("congratulations! You have passed your final exams!");
+        };
+        Res = " ";
+        if (getPhysicsPercentage() < 60.00) {
+            Res = "Fail";
+            System.out.println(Res);
+            System.out.println("You failed your physics exam");
+        };
+        if (getChemistryPercentage() < 60.00) {
+            Res = "Fail";
+            System.out.println(Res);
+            System.out.println("You failed your Chemistry exam");
+        };
+        if (getBiologyPercentage() < 60.00) {
+            Res = "Fail";
+            System.out.println(Res);
+            System.out.println("You failed your Biology exam");
+        };
     }
 
     void printMarksDetails()
